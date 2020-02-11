@@ -1,0 +1,18 @@
+touch index.js
+https://www.lanacion.com.ar/economia/que-es-cisne-verde-alarma-economistas-que-nid2332650
+https://www.bis.org/publ/othp31.pdf
+
+npm init //--> esto genera el package.json
+//para ejecutar
+node index.js
+//instalamos la dependencia (que actua como un servidor que mira cuando hay cambios)
+npm nodemon
+nodemon . //--> actua sobre el index.js
+
+---------Para el servidor en glitch(https://glitch.com/)
+new hello express
+//cambiar el codigo 
+//y hacer el show
+
+
+------- crear cta https://cloudno.de

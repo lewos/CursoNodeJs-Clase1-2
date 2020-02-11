@@ -1,0 +1,17 @@
+{
+  "name": "ejemplonode",
+  "version": "0.0.1",
+  "description": "Projecto de prueba NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "DS"
+  ],
+  "author": "LC",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
