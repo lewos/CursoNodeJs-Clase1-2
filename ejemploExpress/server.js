@@ -10,14 +10,34 @@ const PORT = 8080
 
 const app = express()
 
-app.use(bodyParser.urlencoded({extended:true}))
 
 // para configurar archivos estaticos
 app.use(express.static(__dirname + '/public'))
 // en vez de esto
 // app.get('/',(req,res)=>{
-//     res.sendFile(__dirname + '/public/index.html')
-// })
+    //     res.sendFile(__dirname + '/public/index.html')
+    // })
+    
+app.use(bodyParser.urlencoded({extended:true}))
+app.use((req,res,next)=>{
+    console.log('-----------------')
+    console.log('FyH', new Date().toLocaleDateString())
+    console.log('req.query',req.query)
+    console.log('req.body',req.body)
+    console.log('-----------------')
+
+    next()
+})
+app.use((req,res,next)=>{
+    console.log('-----------------')
+    console.log('Timestamp', Date.now())
+    console.log('req.query',req.query)
+    console.log('req.body',req.body)
+    console.log('-----------------')
+
+    next()
+})
+
 
 // app.get('/datos',(req,res)=>{
 //     res.send('RUTA DATOS')
@@ -26,13 +46,14 @@ app.use(express.static(__dirname + '/public'))
 //http://localhost:8080/datos/81616?nombre=juan&edad=23
 app.get('/datos/:numero?',(req,res)=>{
     let numero = req.params.numero
-    console.log(req.query)
+    //console.log(req.query)
     res.send('RUTA DATOS: ' + numero)
 })
 
 app.post('/datos',(req,res)=>{
     //console.log(req.body)
-    res.send('Datos post recibidos')
+    //res.send('Datos post recibidos')
+    res.redirect('/')
 })
 
 app.delete('/datos',(req,res)=>{
@@ -43,10 +64,6 @@ app.delete('/datos',(req,res)=>{
 app.put('/datos',(req,res)=>{
     //console.log(req.body)
     res.send('Request put recibidos')
-})
-
-app.post('/datos',(req,res)=>{
-    res.send('Datos post recibidos')
 })
 
 app.get('*',(req,res)=>{
